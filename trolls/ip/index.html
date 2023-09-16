@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IP Address and Autoplay Video</title>
+    <title>Autoplay Video Background</title>
     <style>
       body {
         margin: 0;
         overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
       }
       #video-container {
         position: fixed;
@@ -23,21 +27,20 @@
       #ip {
         font-size: 36px;
         position: absolute;
-        top: 20px;
-        left: 20px;
         color: white;
+        display: none;
       }
     </style>
   </head>
   <body>
-    <div id="ip">Your IP Address: Loading...</div>
-    
     <div id="video-container">
-      <video id="video" autoplay loop playsinline muted>
+      <video id="video" autoplay loop playsinline>
         <source src="video.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
     </div>
+
+    <div id="ip">Your IP Address: Loading...</div>
 
     <script>
       function displayIP() {
@@ -47,11 +50,16 @@
           .then((response) => response.json())
           .then((data) => {
             ipElement.innerText = `Your IP Address: ${data.ip}`;
+            ipElement.style.display = "block"; // Show the IP address when loaded
           })
           .catch((error) => {
             ipElement.innerText = "Error fetching IP address.";
           });
       }
+
+      // Listen for the video's "loadedmetadata" event to trigger IP address retrieval
+      const videoElement = document.getElementById("video");
+      videoElement.addEventListener("loadedmetadata", displayIP);
 
       setInterval(displayIP, 5000); // Update every 5 seconds
     </script>
