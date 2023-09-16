@@ -37,7 +37,7 @@
     </ul>
 
     <div class="backButton">
-        <a href="/play" class="button">Back</a>
+        <a href="/" class="button">Back</a>
     </div>
 
     <div class="pageTitle">Settings</div>
@@ -62,7 +62,27 @@
         </div>
     </div>
 
+    <!-- Add the buttons to the bottom right -->
+    <div class="controls">
+        <i id="reloadButton" class="button fa-solid fa-rotate-right" onclick="location.reload()"></i>
+        <i id="fullscreenButton" class="button fa-solid fa-expand" onclick="toggleFullScreen()"></i>
+        <a id="settingsButton" class="button fa-solid fa-cog" href="/play/settings.html"></a>
+    </div>
+
     <script src="https://bypass6.github.io/play/all.js"></script>
     <script src="https://bypass6.github.io/play/settings.js"></script>
+    <script>
+        // Toggle fullscreen mode for the iframe
+        function toggleFullScreen() {
+            var iframe = document.querySelector('.siteFrame');
+            if (!document.fullscreenElement) {
+                iframe.requestFullscreen().catch(err => {
+                    console.error(`Error attempting to enable full-screen mode: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
 </body>
 </html>
