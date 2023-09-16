@@ -21,6 +21,38 @@
     <script src="https://bypass6.github.io/play/dynamic.js" defer></script>
 
     <title>Settings | Bypass6</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .pageTitle {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .button {
+            background-color: transparent;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .button:hover {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <ul class="squares">
@@ -58,19 +90,18 @@
         </div>
     </div>
 
-    <!-- Add the "X" button to the bottom right -->
+    <!-- "X" button to go back -->
     <div class="controls">
-        <i id="closeButton" class="button fa-solid fa-x" onclick="goBackToLastTab()"></i>
+        <button class="button" id="closeButton">X</button>
     </div>
 
     <script src="https://bypass6.github.io/play/all.js"></script>
     <script src="https://bypass6.github.io/play/settings.js"></script>
     <script>
-        // Function to go back to the last tab (you can customize this functionality)
-        function goBackToLastTab() {
-            // You can implement the logic here to go back to the last tab
-            // For example, you can use window.history.back();
-        }
+        // Function to go back to the last tab
+        document.getElementById('closeButton').addEventListener('click', function() {
+            window.history.back();
+        });
     </script>
 </body>
 </html>
