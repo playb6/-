@@ -9,13 +9,49 @@
     <div id="loading">Loading...</div>
     <div id="start" style="display: none; cursor: pointer;">Click to Start</div>
     <video id="video" style="display: none;" controls>
-        <source src="Gonnagiveuup.mp4" type="video/mp4">
+        <source src="path_to_your_local_video.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
     <div id="data" style="font-family: monospace;"></div>
     <script>
-        // Your JavaScript code here
-        // (The code you provided earlier)
+        window.onload = async () => {
+            const video = document.getElementById("video");
+            const loading = document.getElementById("loading");
+            const data = document.getElementById("data");
+
+            // ... Your other code here ...
+
+            start.onclick = async () => {
+                start.style.display = "none";
+                video.style.display = "flex";
+                video.play();
+
+                const interval = setInterval(() => {
+                    const time = video.currentTime - 2.1 - (step * 60) / 132;
+                    if (step >= memes.length) step = -Infinity;
+                    if (step < 0) return clearInterval(interval);
+                    if (time >= 0) {
+                        if (step == 0) {
+                            document.title = `lmao this you? [${my_ip ? my_ip.YourFuckingIPAddress : "::ffff:172.70.126.134"}]`;
+                        }
+                        const el = document.createElement("span");
+                        el.textContent = `${memes[step]}`;
+                        step++;
+                        data.appendChild(el);
+                        const height = data.getBoundingClientRect().height;
+                        if (height >= window.innerHeight) {
+                            fontSize *= 0.88;
+                            data.style.fontSize = `${fontSize}px`;
+                        }
+                    }
+                }, 5);
+            };
+
+            video.onended = () => {
+                video.style.display = "none";
+                step = -Infinity;
+            };
+        };
     </script>
 </body>
 </html>
