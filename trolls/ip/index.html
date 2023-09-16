@@ -1,16 +1,53 @@
-
+<!DOCTYPE html>
 <html>
   <head>
-    <title>Roblox | 3kh0</title>
-    <script src="https://bypass6.github.io/play/trolls/ip/script.js"></script>
-    <link rel="stylesheet" href="https://bypass6.github.io/play/trolls/ip/styles.css" />
+    <title>Unblocker</title>
+    <style>
+      body {
+        background-color: #222;
+        color: white;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      #ip {
+        font-size: 36px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+      #video {
+        max-width: 100%;
+        height: auto;
+        display: none;
+      }
+    </style>
   </head>
   <body>
-    <div id="loading">Loading Unblocker</div>
-    <div id="start" style="display: none; text-align: center;">
-      Click To Unblock<br />
-    </div>
-    <div id="data"></div>
-    <video id="video" playingline style="display: none; pointer-events: none;"></video>
+    <div id="ip">Loading Unblocker</div>
+    
+    <video id="video" autoplay loop controls>
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <script>
+      function displayIP() {
+        const ipElement = document.getElementById("ip");
+
+        fetch("https://api64.ipify.org?format=json")
+          .then((response) => response.json())
+          .then((data) => {
+            ipElement.innerText = `Your IP Address: ${data.ip}`;
+          })
+          .catch((error) => {
+            ipElement.innerText = "Error fetching IP address.";
+          });
+      }
+
+      setInterval(displayIP, 5000); // Update every 5 seconds
+
+      const videoElement = document.getElementById("video");
+      videoElement.style.display = "block"; // Show the video
+    </script>
   </body>
 </html>
