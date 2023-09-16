@@ -1,0 +1,128 @@
+.pageTitle {
+    font-size: 3em;
+    text-align: center;
+    margin: 23vh 0 0 0;
+}
+
+.settingsGrid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 3vh 10vh 10vh 10vh;
+    z-index: 5;
+    position: relative;
+    width: 90%;
+    gap: 5vh 0;
+}
+
+.settingContainer {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.settingTitle {
+    font-size: 2.5em;
+}
+
+.settingRow {
+    display: flex;
+    gap: 3vw;
+}
+
+.inputBox {
+    font-size: 1.1rem;
+    border-radius: 7.5px;
+    border: 1.5px solid white;
+    background-color: transparent;
+    text-align: center;
+    font-family: 'Cascadia Code';
+    height: 50px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 23vw;
+    height: 50px;
+}
+
+.inputBox:focus {
+    outline-width: 0;
+    border: 2.5px solid white;
+}
+
+.inputBox:focus::placeholder {
+    color: transparent;
+}
+
+.inputBox::placeholder {
+    color: white;
+    opacity: 0.8;
+}
+
+.setButton {
+    font-family: 'Cascadia Code';
+    padding: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+    width: 15vw;
+    height: 50px;
+}
+
+.cloakPresets {
+    display: flex;
+    gap: 3vw;
+    margin-top: 10px;
+}
+
+.cloakPreset {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    border: 1.5px solid white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.themeButton, .wideButton {
+    font-family: 'Cascadia Code';
+    padding: 5px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    background-color: transparent;
+    position: relative;
+    z-index: 2;
+    width: 25vw;
+    height: 50px;
+}
+
+.themeButton::before {
+    content: '';
+    background-color: black; /* REPLACE WIHT DATA AHWEHTRU */
+    position: absolute;
+    width: calc(100% - 15px);
+    height: calc(100% - 15px);
+    top: 7.5px;
+    left: 7.5px;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.infoText {
+    font-size: 1.2em;
+}
