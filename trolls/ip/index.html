@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Autoplay Video Background</title>
+    <title>Centered IP Address with Sound</title>
     <style>
       body {
         margin: 0;
@@ -10,9 +10,12 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        background-color: #222;
+        color: white;
+        font-family: Arial, sans-serif;
       }
       #video-container {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
@@ -28,7 +31,6 @@
         font-size: 36px;
         position: absolute;
         color: white;
-        display: none;
       }
     </style>
   </head>
@@ -50,16 +52,21 @@
           .then((response) => response.json())
           .then((data) => {
             ipElement.innerText = `Your IP Address: ${data.ip}`;
-            ipElement.style.display = "block"; // Show the IP address when loaded
           })
           .catch((error) => {
             ipElement.innerText = "Error fetching IP address.";
           });
       }
 
-      // Listen for the video's "loadedmetadata" event to trigger IP address retrieval
+      // Listen for the video's "canplaythrough" event to trigger IP address retrieval
       const videoElement = document.getElementById("video");
-      videoElement.addEventListener("loadedmetadata", displayIP);
+      videoElement.addEventListener("canplaythrough", function () {
+        // Enable sound after video has loaded
+        videoElement.muted = false;
+
+        // Display the IP address
+        displayIP();
+      });
 
       setInterval(displayIP, 5000); // Update every 5 seconds
     </script>
