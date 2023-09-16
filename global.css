@@ -1,0 +1,60 @@
+body {
+    font-size: 18px;
+    font-family: 'Cascadia Code';
+    font-weight: 1000;
+    margin: 0;
+}
+
+* {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    color: white;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+.navbar {
+    position: absolute;
+    top: 3vh;
+    height: 14vh;
+    width: 95%;
+    left: 2.5%;
+    background-color: black;
+    border-radius: 20px;
+    z-index: 100;
+    box-shadow: 0vh 0vh 3vh 0vh black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navLogo {
+    position: absolute;
+    height: 10vh;
+    left: 2vw;
+    top: 2vh;
+}
+
+.navLinks {
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    position: absolute;
+    right: 4vw;
+    gap: 4vw;
+}
+
+.navLink {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.25em;
+}
+
+.navLinkIcon {
+    font-size: 6vh;
+    margin-right: 14px;
+}
