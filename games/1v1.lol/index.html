@@ -23,8 +23,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            height: 100vh; /* Set the height to 100% of the viewport height */
+            width: 100%; /* Set the width to 100% of the viewport width */
             max-width: 100%;
+        }
+
+        /* Add space for the ads on both sides */
+        .ads {
+            width: 10%; /* Adjust the width as needed for your ads */
+            height: 100%;
+            background-color: #f0f0f0; /* Background color for ads */
         }
 
         .rounded-content {
@@ -32,7 +40,7 @@
             margin: 0 2%;
             border-radius: 20px;
             overflow: hidden;
-            width: 100%;
+            width: 80%; /* Adjust the width of the content area */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -51,7 +59,7 @@
         @media (min-width: 1500px) {
             /* Large screens */
             .rounded-content {
-                width: 1500px;
+                width: 80%;
                 height: 800px;
             }
         }
@@ -136,6 +144,9 @@
         <li></li>
     </ul>
 
+    <!-- Ads on the left side -->
+    <div class="ads"></div>
+
     <!-- Rounded container with the responsive iframe -->
     <div class="rounded-container">
         <div class="rounded-content">
@@ -143,7 +154,10 @@
             <iframe class="siteFrame" src="https://raw.githack.com/3kh0/3kh0-assets/main/1v1lol/index.html"></iframe>
         </div>
     </div>
-    
+
+    <!-- Ads on the right side -->
+    <div class="ads"></div>
+
     <!-- Control buttons -->
     <div class="controls">
         <i id="reloadButton" class="button fa-solid fa-rotate-right" onclick="location.reload()"></i>
